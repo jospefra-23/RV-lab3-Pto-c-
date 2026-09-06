@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Parte D - Modelo CAD</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.1/dist/aframe-master.min.js"></script>
+
+    <style>
+        #volver {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 9999;
+            padding: 12px 20px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="index.html" id="volver">← Volver al menú</a>
+
+    <a-scene>
+
+        <!-- Cargar modelo CAD -->
+        <a-assets>
+            <a-asset-item
+                id="modeloIndustrial"
+                src="models/pendulo_completo.glb">
+            </a-asset-item>
+        </a-assets>
+
+        <!-- Modelo CAD -->
+        <a-entity
+            gltf-model="#modeloIndustrial"
+            position="0 1.2 -1.5"
+            rotation="0 0 0"
+            scale="1 1 1">
+        </a-entity>
+
+        <!-- Piso -->
+        <a-plane
+            position="0 0 -2"
+            rotation="-90 0 0"
+            width="10"
+            height="10"
+            color="#808080">
+        </a-plane>
+
+        <!-- Iluminación -->
+        <a-light
+            type="ambient"
+            intensity="1">
+        </a-light>
+
+        <a-light
+            type="directional"
+            intensity="1"
+            position="1 4 2">
+        </a-light>
+
+        <!-- Fondo -->
+        <a-sky color="#ECECEC"></a-sky>
+
+        <!-- Cámara -->
+        <a-camera
+            position="0 1.6 0">
+        </a-camera>
+
+    </a-scene>
+
+</body>
+
+</html>
